@@ -14,7 +14,6 @@ public class WordUtils {
         this.currentWord = "";
         for(int i=0; i<this.chosenWord.length(); i++) {
             this.currentWord = this.currentWord + "_";
-            System.out.println(this.currentWord);
         }
     }
 

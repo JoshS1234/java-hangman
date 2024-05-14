@@ -24,6 +24,14 @@ public class GameControlFlow {
                 stateInfo();
                 playerGuess();
             }
+            if (hasWon) {
+                System.out.println("You win!");
+            }
+            if (hasLost) {
+                System.out.println("You lose!");
+            }
+            System.out.println("The word was: " + wordUtils.wordToGuess);
+            resetGame();
         } else {
             System.out.println("See you later!");
         }
@@ -70,6 +78,10 @@ public class GameControlFlow {
         return wordUtils.checkCurrWordFull();
     }
 
+    public void resetGame() {
+        wordUtils = new WordUtils();
+        playGame();
+    }
 
 
 
