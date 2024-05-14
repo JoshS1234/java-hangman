@@ -1,30 +1,29 @@
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class GameControlFlow {
-    protected String wordToGuess;
-    protected String currentWord;
     protected int lives;
+    protected boolean hasWon;
+    protected boolean hasLost;
 
     WordUtils wordUtils = new WordUtils();
     PlayerMessages playerMessages = new PlayerMessages();
 
 
     public GameControlFlow() {
-        this.wordToGuess = wordUtils.chooseRandomWord();
-        this.currentWord = "";
-        for(int i=0; i<this.wordToGuess.length(); i++) {
-            this.currentWord = this.currentWord + "_";
-            System.out.println(this.currentWord);
-        }
         this.lives=9;
+        this.hasLost=false;
+        this.hasWon=false;
     }
 
 
     public void playGame() {
         String playerResponse = playerMessages.startGame();
         if (playerResponse.equals("y")) {
-            stateInfo();
-            playerGuess();
+            while (!hasWon && !hasLost) {
+                stateInfo();
+                playerGuess();
+            }
         } else {
             System.out.println("See you later!");
         }
@@ -34,7 +33,7 @@ public class GameControlFlow {
         System.out.println("you have " + this.lives + " lives left");
         System.out.println("You have already guessed letters: " + Arrays.toString(wordUtils.lettersGuessed));
         System.out.println("the current word is: ");
-        System.out.println(this.currentWord);
+        System.out.println(wordUtils.currentWord);
     }
 
     public void playerGuess() {
@@ -50,7 +49,27 @@ public class GameControlFlow {
             }
         }
         System.out.println("your guess was: " + letterToCheck);
+        wordUtils.addLetterToGuessedList(letterToCheck);
+        //Check if letter is in word and update lives
+        if(!wordUtils.checkIfLetterIsInWordAndUpdateCurrWord(letterToCheck)) {
+            //UPDATE LIVES COUNT
+            //UPDATE THE WORD WITH UNDERLINES
+            this.lives=this.lives-1;
+        }
+        //CHECK IF WON OR LOST (lives=0, word is full)
+        this.hasWon=checkWin();
+        this.hasLost=checkLose();
+
     }
+
+    public boolean checkLose() {
+        return this.lives==0;
+    }
+
+    public boolean checkWin() {
+        return wordUtils.checkCurrWordFull();
+    }
+
 
 
 

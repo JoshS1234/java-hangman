@@ -1,9 +1,22 @@
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class WordUtils {
-    protected String[] wordArr={"cat", "frog"};
+    protected String[] wordArr={"catapult", "alien"};
     protected String chosenWord;
-    protected String[] lettersGuessed = {"a"};
+    protected String[] lettersGuessed = {};
+    protected String wordToGuess;
+    protected String currentWord;
+
+    public WordUtils() {
+        this.wordToGuess = chooseRandomWord();
+        this.currentWord = "";
+        for(int i=0; i<this.chosenWord.length(); i++) {
+            this.currentWord = this.currentWord + "_";
+            System.out.println(this.currentWord);
+        }
+    }
 
     public String[] getWordArr() {
         return wordArr;
@@ -40,8 +53,40 @@ public class WordUtils {
         for(int i=0; i<lettersGuessed.length; i++) {
             newArray[i]=lettersGuessed[i];
         }
-        newArray[lettersGuessed.length + 1] = letter;
+        newArray[lettersGuessed.length] = letter;
         this.lettersGuessed = newArray;
+    }
+
+    public boolean checkIfLetterIsInWordAndUpdateCurrWord(String letter) {
+        String[] letterArr = chosenWord.split("");
+        String[] blankedLetterArr = currentWord.split("");
+        boolean match = false;
+        for(int i=0; i<letterArr.length; i++) {
+            if(letterArr[i].equals(letter)) {
+                blankedLetterArr[i]=letter;
+                match=true;
+            }
+        }
+        if(match) {
+            String rejoinedCurrentWord="";
+            for (int i=0; i<blankedLetterArr.length; i++) {
+                rejoinedCurrentWord=rejoinedCurrentWord+blankedLetterArr[i];
+            }
+            this.currentWord = rejoinedCurrentWord;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean checkCurrWordFull() {
+        String[] currentWordArr=currentWord.split("");
+        for (String s : currentWordArr) {
+            if(s.equals("_")) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
