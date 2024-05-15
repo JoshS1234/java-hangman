@@ -11,15 +11,20 @@ public class WordUtils {
     protected String currentWord;
 
     public WordUtils(String difficulty) {
-        if (difficulty.equals("easy")) {
-            this.wordToGuess = chooseRandomWord(wordArrEasy);
-        } else if (difficulty.equals("medium")) {
-            this.wordToGuess = chooseRandomWord(wordArrMedium);
-        } else if (difficulty.equals("hard")) {
-            this.wordToGuess = chooseRandomWord(wordArrHard);
-        } else {
-            System.out.println("Error!");
-            this.wordToGuess = chooseRandomWord(wordArrEasy);
+        switch (difficulty) {
+            case "easy":
+                this.wordToGuess = chooseRandomWord(wordArrEasy);
+                break;
+            case "medium":
+                this.wordToGuess = chooseRandomWord(wordArrMedium);
+                break;
+            case "hard":
+                this.wordToGuess = chooseRandomWord(wordArrHard);
+                break;
+            default:
+                System.out.println("Error!");
+                this.wordToGuess = chooseRandomWord(wordArrEasy);
+                break;
         }
         this.currentWord = "";
         for (int i = 0; i < this.chosenWord.length(); i++) {

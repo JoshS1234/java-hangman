@@ -21,25 +21,30 @@ public class GameControlFlow {
         String playerResponse = playerMessages.startGame();
         if (playerResponse.equals("y")) {
             String difficultyChoice = playerMessages.pickDifficulty();
-            if (difficultyChoice.equals("easy")) {
-                wordUtils=new WordUtils("easy");
-            } else if (difficultyChoice.equals("medium")) {
-                wordUtils=new WordUtils("medium");
-            } else if (difficultyChoice.equals("hard")) {
-                wordUtils=new WordUtils("hard");
-            } else {
-                System.out.println("Error!");
-                wordUtils=new WordUtils("easy");
+            switch (difficultyChoice) {
+                case "easy":
+                    wordUtils = new WordUtils("easy");
+                    break;
+                case "medium":
+                    wordUtils = new WordUtils("medium");
+                    break;
+                case "hard":
+                    wordUtils = new WordUtils("hard");
+                    break;
+                default:
+                    System.out.println("Error!");
+                    wordUtils = new WordUtils("easy");
+                    break;
             }
             while (!hasWon && !hasLost) {
                 stateInfo();
                 playerGuess();
             }
             if (hasWon) {
-                System.out.println("You win!");
+                System.out.println("\nYou win!\n");
             }
             if (hasLost) {
-                System.out.println("You lose!");
+                System.out.println("\nYou lose!\n");
             }
             System.out.println("The word was: " + wordUtils.wordToGuess);
             resetGame();
@@ -49,10 +54,9 @@ public class GameControlFlow {
     }
 
     public void stateInfo() {
-        System.out.println("you have " + this.lives + " lives left");
-        System.out.println("You have already guessed letters: " + wordUtils.lettersGuessed);
-        System.out.println("the current word is: ");
-        System.out.println(wordUtils.currentWord);
+        System.out.println("\n");
+        System.out.println("you have " + this.lives + " lives left. " + "You have already guessed letters: " + wordUtils.lettersGuessed);
+        System.out.println("the current word is: " + wordUtils.currentWord);
     }
 
     public void playerGuess() {
@@ -74,6 +78,9 @@ public class GameControlFlow {
             //UPDATE LIVES COUNT
             //UPDATE THE WORD WITH UNDERLINES
             this.lives=this.lives-1;
+            System.out.println("\nThis was not in the word!");
+        } else {
+            System.out.println("\nThis was in the word!");
         }
         //CHECK IF WON OR LOST (lives=0, word is full)
         this.hasWon=checkWin();
@@ -93,6 +100,7 @@ public class GameControlFlow {
         this.lives=9;
         this.hasLost=false;
         this.hasWon=false;
+        System.out.println("\n\n");
         playGame();
     }
 
