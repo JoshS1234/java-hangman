@@ -1,29 +1,38 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.regex.Pattern;
 
 public class WordUtils {
-    protected String[] wordArr={"catapult", "alien"};
+    protected String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
+    protected String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
+    protected String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
     protected String chosenWord;
-    protected ArrayList<String> lettersGuessed = new ArrayList<>(){};
+    protected ArrayList<String> lettersGuessed = new ArrayList<>() {
+    };
     protected String wordToGuess;
     protected String currentWord;
 
-    public WordUtils() {
-        this.wordToGuess = chooseRandomWord();
+    public WordUtils(String difficulty) {
+        if (difficulty.equals("easy")) {
+            this.wordToGuess = chooseRandomWord(wordArrEasy);
+        } else if (difficulty.equals("medium")) {
+            this.wordToGuess = chooseRandomWord(wordArrMedium);
+        } else if (difficulty.equals("hard")) {
+            this.wordToGuess = chooseRandomWord(wordArrHard);
+        } else {
+            System.out.println("Error!");
+            this.wordToGuess = chooseRandomWord(wordArrEasy);
+        }
         this.currentWord = "";
-        for(int i=0; i<this.chosenWord.length(); i++) {
+        for (int i = 0; i < this.chosenWord.length(); i++) {
             this.currentWord = this.currentWord + "_";
         }
     }
 
-    public String[] getWordArr() {
-        return wordArr;
+    public String[] getWordArrHard() {
+        return wordArrHard;
     }
 
-    public void setWordArr(String[] wordArr) {
-        this.wordArr = wordArr;
+    public void setWordArrHard(String[] wordArrHard) {
+        this.wordArrHard = wordArrHard;
     }
 
     public String getChosenWord() {
@@ -34,8 +43,8 @@ public class WordUtils {
         this.chosenWord = chosenWord;
     }
 
-    public String chooseRandomWord() {
-        this.chosenWord = wordArr[(int) Math.floor(Math.random()*wordArr.length)];
+    public String chooseRandomWord(String[] wordArr) {
+        this.chosenWord = wordArr[(int) Math.floor(Math.random() * wordArr.length)];
         return this.chosenWord;
     }
 
@@ -56,16 +65,16 @@ public class WordUtils {
         String[] letterArr = chosenWord.split("");
         String[] blankedLetterArr = currentWord.split("");
         boolean match = false;
-        for(int i=0; i<letterArr.length; i++) {
-            if(letterArr[i].equals(letter)) {
-                blankedLetterArr[i]=letter;
-                match=true;
+        for (int i = 0; i < letterArr.length; i++) {
+            if (letterArr[i].equals(letter)) {
+                blankedLetterArr[i] = letter;
+                match = true;
             }
         }
-        if(match) {
-            String rejoinedCurrentWord="";
-            for (int i=0; i<blankedLetterArr.length; i++) {
-                rejoinedCurrentWord=rejoinedCurrentWord+blankedLetterArr[i];
+        if (match) {
+            String rejoinedCurrentWord = "";
+            for (int i = 0; i < blankedLetterArr.length; i++) {
+                rejoinedCurrentWord = rejoinedCurrentWord + blankedLetterArr[i];
             }
             this.currentWord = rejoinedCurrentWord;
             return true;
@@ -75,16 +84,14 @@ public class WordUtils {
     }
 
     public boolean checkCurrWordFull() {
-        String[] currentWordArr=currentWord.split("");
+        String[] currentWordArr = currentWord.split("");
         for (String s : currentWordArr) {
-            if(s.equals("_")) {
+            if (s.equals("_")) {
                 return false;
             }
         }
         return true;
     }
-
-
 
 
 }

@@ -6,7 +6,7 @@ public class GameControlFlow {
     protected boolean hasWon;
     protected boolean hasLost;
 
-    WordUtils wordUtils = new WordUtils();
+    WordUtils wordUtils;
     PlayerMessages playerMessages = new PlayerMessages();
 
 
@@ -20,6 +20,17 @@ public class GameControlFlow {
     public void playGame() {
         String playerResponse = playerMessages.startGame();
         if (playerResponse.equals("y")) {
+            String difficultyChoice = playerMessages.pickDifficulty();
+            if (difficultyChoice.equals("easy")) {
+                wordUtils=new WordUtils("easy");
+            } else if (difficultyChoice.equals("medium")) {
+                wordUtils=new WordUtils("medium");
+            } else if (difficultyChoice.equals("hard")) {
+                wordUtils=new WordUtils("hard");
+            } else {
+                System.out.println("Error!");
+                wordUtils=new WordUtils("easy");
+            }
             while (!hasWon && !hasLost) {
                 stateInfo();
                 playerGuess();
@@ -79,7 +90,9 @@ public class GameControlFlow {
     }
 
     public void resetGame() {
-        wordUtils = new WordUtils();
+        this.lives=9;
+        this.hasLost=false;
+        this.hasWon=false;
         playGame();
     }
 
