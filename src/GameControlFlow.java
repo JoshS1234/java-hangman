@@ -42,9 +42,11 @@ public class GameControlFlow {
             }
             if (hasWon) {
                 System.out.println("\nYou win!\n");
+                System.out.println(playerMessages.hangmanImages[playerMessages.hangmanImages.length-this.lives-1]);
             }
             if (hasLost) {
                 System.out.println("\nYou lose!\n");
+                System.out.println(playerMessages.hangmanImages[playerMessages.hangmanImages.length-this.lives-1]);
             }
             System.out.println("The word was: " + wordUtils.wordToGuess);
             resetGame();
@@ -55,6 +57,7 @@ public class GameControlFlow {
 
     public void stateInfo() {
         System.out.println("\n");
+        System.out.println(playerMessages.hangmanImages[playerMessages.hangmanImages.length-this.lives-1]);
         System.out.println("you have " + this.lives + " lives left. " + "You have already guessed letters: " + wordUtils.lettersGuessed);
         System.out.println("the current word is: " + wordUtils.currentWord);
     }
