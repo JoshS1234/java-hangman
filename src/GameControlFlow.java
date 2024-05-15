@@ -82,6 +82,7 @@ public class GameControlFlow {
         } else {
             System.out.println("\nThis was in the word!");
         }
+
         //CHECK IF WON OR LOST (lives=0, word is full)
         this.hasWon=checkWin();
         this.hasLost=checkLose();
