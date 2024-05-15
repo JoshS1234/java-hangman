@@ -21,15 +21,20 @@ public class GameControlFlow {
         String playerResponse = playerMessages.startGame();
         if (playerResponse.equals("y")) {
             String difficultyChoice = playerMessages.pickDifficulty();
-            if (difficultyChoice.equals("easy")) {
-                wordUtils=new WordUtils("easy");
-            } else if (difficultyChoice.equals("medium")) {
-                wordUtils=new WordUtils("medium");
-            } else if (difficultyChoice.equals("hard")) {
-                wordUtils=new WordUtils("hard");
-            } else {
-                System.out.println("Error!");
-                wordUtils=new WordUtils("easy");
+            switch (difficultyChoice) {
+                case "easy":
+                    wordUtils = new WordUtils("easy");
+                    break;
+                case "medium":
+                    wordUtils = new WordUtils("medium");
+                    break;
+                case "hard":
+                    wordUtils = new WordUtils("hard");
+                    break;
+                default:
+                    System.out.println("Error!");
+                    wordUtils = new WordUtils("easy");
+                    break;
             }
             while (!hasWon && !hasLost) {
                 stateInfo();
