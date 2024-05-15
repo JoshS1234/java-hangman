@@ -41,10 +41,10 @@ public class GameControlFlow {
                 playerGuess();
             }
             if (hasWon) {
-                System.out.println("You win!");
+                System.out.println("\nYou win!\n");
             }
             if (hasLost) {
-                System.out.println("You lose!");
+                System.out.println("\nYou lose!\n");
             }
             System.out.println("The word was: " + wordUtils.wordToGuess);
             resetGame();
@@ -54,10 +54,9 @@ public class GameControlFlow {
     }
 
     public void stateInfo() {
-        System.out.println("you have " + this.lives + " lives left");
-        System.out.println("You have already guessed letters: " + wordUtils.lettersGuessed);
-        System.out.println("the current word is: ");
-        System.out.println(wordUtils.currentWord);
+        System.out.println("\n");
+        System.out.println("you have " + this.lives + " lives left. " + "You have already guessed letters: " + wordUtils.lettersGuessed);
+        System.out.println("the current word is: " + wordUtils.currentWord);
     }
 
     public void playerGuess() {
