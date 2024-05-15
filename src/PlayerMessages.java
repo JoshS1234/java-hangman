@@ -4,7 +4,7 @@ import java.util.regex.*;
 public class PlayerMessages {
 
     Scanner myScanner = new Scanner(System.in);
-    String[] hangmanImages = {"\n\n\n\n\n\n\n","\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========","  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n /\\   |\n      |\n========="};
+    String[] hangmanImages = {"\n\n\n\n\n\n\n","\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========","  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="};
 
     public String startGame() {
         System.out.println("Would you like to start a game? (y/n) \n");
