@@ -78,7 +78,11 @@ public class GameControlFlow {
             //UPDATE LIVES COUNT
             //UPDATE THE WORD WITH UNDERLINES
             this.lives=this.lives-1;
+            System.out.println("\nThis was not in the word!");
+        } else {
+            System.out.println("\nThis was in the word!");
         }
+
         //CHECK IF WON OR LOST (lives=0, word is full)
         this.hasWon=checkWin();
         this.hasLost=checkLose();
@@ -97,6 +101,7 @@ public class GameControlFlow {
         this.lives=9;
         this.hasLost=false;
         this.hasWon=false;
+        System.out.println("\n\n");
         playGame();
     }
 
