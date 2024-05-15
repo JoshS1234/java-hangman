@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -5,7 +6,7 @@ import java.util.regex.Pattern;
 public class WordUtils {
     protected String[] wordArr={"catapult", "alien"};
     protected String chosenWord;
-    protected String[] lettersGuessed = {};
+    protected ArrayList<String> lettersGuessed = new ArrayList<>(){};
     protected String wordToGuess;
     protected String currentWord;
 
@@ -48,12 +49,7 @@ public class WordUtils {
     }
 
     public void addLetterToGuessedList(String letter) {
-        String[] newArray = new String[lettersGuessed.length + 1];;
-        for(int i=0; i<lettersGuessed.length; i++) {
-            newArray[i]=lettersGuessed[i];
-        }
-        newArray[lettersGuessed.length] = letter;
-        this.lettersGuessed = newArray;
+        lettersGuessed.add(letter);
     }
 
     public boolean checkIfLetterIsInWordAndUpdateCurrWord(String letter) {

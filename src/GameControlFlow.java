@@ -39,7 +39,7 @@ public class GameControlFlow {
 
     public void stateInfo() {
         System.out.println("you have " + this.lives + " lives left");
-        System.out.println("You have already guessed letters: " + Arrays.toString(wordUtils.lettersGuessed));
+        System.out.println("You have already guessed letters: " + wordUtils.lettersGuessed);
         System.out.println("the current word is: ");
         System.out.println(wordUtils.currentWord);
     }
