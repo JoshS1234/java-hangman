@@ -95,11 +95,11 @@ public class PlayerMessages {
 
     public static String getPlayerWord(String player1Name,String player2Name) {
         System.out.println("OK " + player1Name + ", you will now choose your word. Make sure "+player2Name+" cannot see the screen!");
-        Pattern pattern = Pattern.compile("^[a-z]+$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
         String player1Word = "";
         while (!pattern.matcher(player1Word).matches()) {
             System.out.println(player1Name + ", please enter your word (alphabet characters only, no spaces): ");
-            player1Word = myScanner.nextLine();
+            player1Word = myScanner.nextLine().toLowerCase();
             if(!pattern.matcher(player1Word).matches()) {
                 System.out.println("this is not a valid word, must be 1 word with only alphabet characters");
             }

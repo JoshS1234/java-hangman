@@ -13,11 +13,11 @@ public class GameControlFlow {
             String playerNumber = PlayerMessages.pickPlayerNumber();
             if (playerNumber.equals("1")) {
                 singlePlayerGame = new SinglePlayerGame();
-                singlePlayerGame.beginSinglePlayerGame();
+                singlePlayerGame.beginGame();
             } else {
                 System.out.println("requested a 2 player game");
                 twoPlayerGame = new TwoPlayerGame();
-                twoPlayerGame.beginTwoPlayerGame();
+                twoPlayerGame.beginGame();
             }
             resetGame();
         } else {
