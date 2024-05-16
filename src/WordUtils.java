@@ -4,7 +4,6 @@ public class WordUtils {
     protected String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
     protected String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
     protected String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
-    protected String chosenWord;
     protected ArrayList<String> lettersGuessed = new ArrayList<>() {
     };
     protected String wordToGuess;
@@ -27,7 +26,15 @@ public class WordUtils {
                 break;
         }
         this.currentWord = "";
-        for (int i = 0; i < this.chosenWord.length(); i++) {
+        for (int i = 0; i < this.wordToGuess.length(); i++) {
+            this.currentWord = this.currentWord + "_";
+        }
+    }
+
+    public WordUtils(int players, String wordToGuess) {
+        this.wordToGuess =wordToGuess;
+        this.currentWord = "";
+        for (int i = 0; i < this.wordToGuess.length(); i++) {
             this.currentWord = this.currentWord + "_";
         }
     }
@@ -40,17 +47,10 @@ public class WordUtils {
         this.wordArrHard = wordArrHard;
     }
 
-    public String getChosenWord() {
-        return chosenWord;
-    }
 
-    public void setChosenWord(String chosenWord) {
-        this.chosenWord = chosenWord;
-    }
 
     public String chooseRandomWord(String[] wordArr) {
-        this.chosenWord = wordArr[(int) Math.floor(Math.random() * wordArr.length)];
-        return this.chosenWord;
+        return wordArr[(int) Math.floor(Math.random() * wordArr.length)];
     }
 
     public boolean letterHasBeenGuessed(String letter) {
@@ -67,7 +67,7 @@ public class WordUtils {
     }
 
     public boolean checkIfLetterIsInWordAndUpdateCurrWord(String letter) {
-        String[] letterArr = chosenWord.split("");
+        String[] letterArr = this.wordToGuess.split("");
         String[] blankedLetterArr = currentWord.split("");
         boolean match = false;
         for (int i = 0; i < letterArr.length; i++) {
