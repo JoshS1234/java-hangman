@@ -68,7 +68,7 @@ public class PlayerMessages {
         }
 
         System.out.println(hangmanImage(lives));
-        System.out.println("Lives left: " + lifeString);
+        System.out.println("Lives left: " + lives + " " + lifeString);
         System.out.println("You have already guessed letters: " + lettersGuessed);
         System.out.println("the current word is: " + currentWord);
     }
