@@ -7,7 +7,6 @@ public class GameControlFlow {
     protected boolean hasLost;
 
     WordUtils wordUtils;
-    PlayerMessages playerMessages = new PlayerMessages();
 
 
     public GameControlFlow() {
@@ -18,9 +17,9 @@ public class GameControlFlow {
 
 
     public void playGame() {
-        String playerResponse = playerMessages.startGame();
+        String playerResponse = PlayerMessages.startGame();
         if (playerResponse.equals("y")) {
-            String difficultyChoice = playerMessages.pickDifficulty();
+            String difficultyChoice = PlayerMessages.pickDifficulty();
             switch (difficultyChoice) {
                 case "easy":
                     wordUtils = new WordUtils("easy");
@@ -42,11 +41,11 @@ public class GameControlFlow {
             }
             if (hasWon) {
                 System.out.println("\nYou win!\n");
-                System.out.println(playerMessages.hangmanImages[playerMessages.hangmanImages.length-this.lives-1]);
+                System.out.println(PlayerMessages.hangmanImage(this.lives));
             }
             if (hasLost) {
                 System.out.println("\nYou lose!\n");
-                System.out.println(playerMessages.hangmanImages[playerMessages.hangmanImages.length-this.lives-1]);
+                System.out.println(PlayerMessages.hangmanImage(this.lives));
             }
             System.out.println("The word was: " + wordUtils.wordToGuess);
             resetGame();
@@ -57,19 +56,19 @@ public class GameControlFlow {
 
     public void stateInfo() {
         System.out.println("\n");
-        System.out.println(playerMessages.hangmanImages[playerMessages.hangmanImages.length-this.lives-1]);
+        System.out.println(PlayerMessages.hangmanImage(this.lives));
         System.out.println("you have " + this.lives + " lives left. " + "You have already guessed letters: " + wordUtils.lettersGuessed);
         System.out.println("the current word is: " + wordUtils.currentWord);
     }
 
     public void playerGuess() {
-        String letterToCheck=playerMessages.playerGuess();
+        String letterToCheck=PlayerMessages.playerGuess();
         if(wordUtils.letterHasBeenGuessed(letterToCheck)) {
             System.out.println("This letter has already been guessed");
         }
 
         while(wordUtils.letterHasBeenGuessed(letterToCheck)) {
-            letterToCheck=playerMessages.playerGuess();
+            letterToCheck=PlayerMessages.playerGuess();
             if(wordUtils.letterHasBeenGuessed(letterToCheck)) {
                 System.out.println("This letter has already been guessed");
             }

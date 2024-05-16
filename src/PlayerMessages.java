@@ -3,10 +3,10 @@ import java.util.regex.*;
 
 public class PlayerMessages {
 
-    Scanner myScanner = new Scanner(System.in);
-    String[] hangmanImages = {"\n\n\n\n\n\n\n","\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========","  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="};
+    static Scanner myScanner = new Scanner(System.in);
+    static String[] hangmanImageArray = {"\n\n\n\n\n\n\n","\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========","  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="};
 
-    public String startGame() {
+    public static String startGame() {
         System.out.println("Would you like to start a game? (y/n) \n");
         String startGameResponse = "";
         while(!startGameResponse.equalsIgnoreCase("y") && !startGameResponse.equalsIgnoreCase("n")) {
@@ -19,7 +19,7 @@ public class PlayerMessages {
         return startGameResponse;
     }
 
-    public String pickDifficulty() {
+    public static String pickDifficulty() {
         System.out.println("What difficulty would you like to play? (type easy/medium/hard to select)");
         String difficultyResponse = "";
         while(!difficultyResponse.equalsIgnoreCase("easy") && !difficultyResponse.equalsIgnoreCase("medium") && !difficultyResponse.equalsIgnoreCase("hard")) {
@@ -31,7 +31,7 @@ public class PlayerMessages {
         return difficultyResponse;
     }
 
-    public String playerGuess() {
+    public static String playerGuess() {
         String letterGuess = "";
         Pattern pattern = Pattern.compile("^[a-z]$");
 
@@ -43,8 +43,10 @@ public class PlayerMessages {
             }
         }
         return letterGuess;
+    }
 
-
+    public static String hangmanImage(int lives) {
+        return hangmanImageArray[PlayerMessages.hangmanImageArray.length-lives-1];
     }
 
 
