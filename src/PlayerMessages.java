@@ -50,9 +50,14 @@ public class PlayerMessages {
     }
 
     public static void stateInfo(int lives, ArrayList<String> lettersGuessed, String currentWord) {
-        System.out.println("\n");
+        String lifeString="";
+        for (int i=0; i<lives; i++) {
+            lifeString=lifeString+"\u2764";
+        }
+
         System.out.println(hangmanImage(lives));
-        System.out.println("you have " + lives + " lives left. " + "You have already guessed letters: " + lettersGuessed);
+        System.out.println("Lives left: " + lifeString);
+        System.out.println("You have already guessed letters: " + lettersGuessed);
         System.out.println("the current word is: " + currentWord);
     }
 
