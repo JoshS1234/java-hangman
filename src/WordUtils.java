@@ -88,6 +88,8 @@ public class WordUtils {
         }
     }
 
+
+
     public boolean checkCurrWordFull() {
         String[] currentWordArr = currentWord.split("");
         for (String s : currentWordArr) {

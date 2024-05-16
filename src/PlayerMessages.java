@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.*;
 
@@ -7,7 +8,7 @@ public class PlayerMessages {
     static String[] hangmanImageArray = {"\n\n\n\n\n\n\n","\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========","  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========","  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="};
 
     public static String startGame() {
-        System.out.println("Would you like to start a game? (y/n) \n");
+        System.out.println("Would you like to start a game? (y/n)");
         String startGameResponse = "";
         while(!startGameResponse.equalsIgnoreCase("y") && !startGameResponse.equalsIgnoreCase("n")) {
             startGameResponse = myScanner.nextLine().toLowerCase();
@@ -15,7 +16,6 @@ public class PlayerMessages {
                 System.out.println("This was not understood, you need to press 'y' or 'n'. Please try again.");
             }
         }
-
         return startGameResponse;
     }
 
@@ -47,6 +47,13 @@ public class PlayerMessages {
 
     public static String hangmanImage(int lives) {
         return hangmanImageArray[PlayerMessages.hangmanImageArray.length-lives-1];
+    }
+
+    public static void stateInfo(int lives, ArrayList<String> lettersGuessed, String currentWord) {
+        System.out.println("\n");
+        System.out.println(hangmanImage(lives));
+        System.out.println("you have " + lives + " lives left. " + "You have already guessed letters: " + lettersGuessed);
+        System.out.println("the current word is: " + currentWord);
     }
 
 

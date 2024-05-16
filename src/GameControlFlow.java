@@ -36,30 +36,24 @@ public class GameControlFlow {
                     break;
             }
             while (!hasWon && !hasLost) {
-                stateInfo();
+                PlayerMessages.stateInfo(this.lives, wordUtils.lettersGuessed, wordUtils.currentWord);
                 playerGuess();
             }
+            System.out.println("The word was: " + wordUtils.wordToGuess);
             if (hasWon) {
-                System.out.println("\nYou win!\n");
                 System.out.println(PlayerMessages.hangmanImage(this.lives));
+                System.out.println("\nYou win!");
             }
             if (hasLost) {
-                System.out.println("\nYou lose!\n");
                 System.out.println(PlayerMessages.hangmanImage(this.lives));
+                System.out.println("\nYou lose!");
             }
-            System.out.println("The word was: " + wordUtils.wordToGuess);
             resetGame();
         } else {
             System.out.println("See you later!");
         }
     }
 
-    public void stateInfo() {
-        System.out.println("\n");
-        System.out.println(PlayerMessages.hangmanImage(this.lives));
-        System.out.println("you have " + this.lives + " lives left. " + "You have already guessed letters: " + wordUtils.lettersGuessed);
-        System.out.println("the current word is: " + wordUtils.currentWord);
-    }
 
     public void playerGuess() {
         String letterToCheck=PlayerMessages.playerGuess();
@@ -75,10 +69,7 @@ public class GameControlFlow {
         }
         System.out.println("your guess was: " + letterToCheck);
         wordUtils.addLetterToGuessedList(letterToCheck);
-        //Check if letter is in word and update lives
         if(!wordUtils.checkIfLetterIsInWordAndUpdateCurrWord(letterToCheck)) {
-            //UPDATE LIVES COUNT
-            //UPDATE THE WORD WITH UNDERLINES
             this.lives=this.lives-1;
             System.out.println("\nThis was not in the word!");
         } else {
@@ -103,7 +94,6 @@ public class GameControlFlow {
         this.lives=9;
         this.hasLost=false;
         this.hasWon=false;
-        System.out.println("\n\n");
         playGame();
     }
 
