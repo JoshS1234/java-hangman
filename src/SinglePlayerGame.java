@@ -19,10 +19,10 @@ public class SinglePlayerGame extends Game {
                 break;
         }
         while (!this.hasWon && !this.hasLost) {
-            PlayerMessages.stateInfo(this.lives, wordUtils.lettersGuessed, wordUtils.currentWord);
+            PlayerMessages.stateInfo(this.lives, wordUtils.getLettersGuessed(), wordUtils.getCurrentWord());
             playerGuess();
         }
-        System.out.println("The word was: " + wordUtils.wordToGuess);
+        System.out.println("The word was: " + wordUtils.getWordToGuess());
         if (this.hasWon) {
             System.out.println(PlayerMessages.hangmanImage(this.lives));
             System.out.println("\nYou win!");

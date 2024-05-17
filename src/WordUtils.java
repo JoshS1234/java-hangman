@@ -1,13 +1,25 @@
 import java.util.ArrayList;
 
 public class WordUtils {
-    protected String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
-    protected String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
-    protected String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
-    protected ArrayList<String> lettersGuessed = new ArrayList<>() {
+    private String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
+    private String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
+    private String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
+    private ArrayList<String> lettersGuessed = new ArrayList<>() {
     };
-    protected String wordToGuess;
-    protected String currentWord;
+    private String wordToGuess;
+    private String currentWord;
+
+    public ArrayList<String> getLettersGuessed() {
+        return lettersGuessed;
+    }
+
+    public String getWordToGuess() {
+        return wordToGuess;
+    }
+
+    public String getCurrentWord() {
+        return currentWord;
+    }
 
     public WordUtils(String difficulty) {
         switch (difficulty) {

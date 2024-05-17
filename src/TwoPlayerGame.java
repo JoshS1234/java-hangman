@@ -9,10 +9,10 @@ public class TwoPlayerGame extends Game {
         String player1Word = PlayerMessages.getPlayerWord(player1Name, player2Name);
         wordUtils = new WordUtils(2, player1Word);
         while (!this.hasWon && !this.hasLost) {
-            PlayerMessages.stateInfo(this.lives, wordUtils.lettersGuessed, wordUtils.currentWord);
+            PlayerMessages.stateInfo(this.lives, wordUtils.getLettersGuessed(), wordUtils.getCurrentWord());
             playerGuess();
         }
-        System.out.println("The word was: " + wordUtils.wordToGuess);
+        System.out.println("The word was: " + wordUtils.getWordToGuess());
         if (this.hasWon) {
             System.out.println(PlayerMessages.hangmanImage(this.lives));
             System.out.println(player2Name + " wins! Better luck next time " + player1Name);
