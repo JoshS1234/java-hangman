@@ -1,11 +1,7 @@
 import java.util.ArrayList;
 
 public class WordUtils {
-    private String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
-    private String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
-    private String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
-    private ArrayList<String> lettersGuessed = new ArrayList<>() {
-    };
+    private ArrayList<String> lettersGuessed = new ArrayList<>() {};
     private String wordToGuess;
     private String currentWord;
 
@@ -22,6 +18,9 @@ public class WordUtils {
     }
 
     public WordUtils(String difficulty) {
+        String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
+        String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
+        String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
         switch (difficulty) {
             case "easy":
                 this.wordToGuess = chooseRandomWord(wordArrEasy);
