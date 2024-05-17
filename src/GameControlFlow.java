@@ -1,6 +1,5 @@
 public class GameControlFlow {
 
-
     SinglePlayerGame singlePlayerGame;
     TwoPlayerGame twoPlayerGame;
 
@@ -22,10 +21,8 @@ public class GameControlFlow {
         }
     }
 
-
     public void resetGame() {
         playGame();
     }
-
 
 }

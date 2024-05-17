@@ -13,6 +13,7 @@ public class Game {
     }
 
     public void beginGame() {
+        System.out.println("This is the begin game method, it will be overridden by single/two player games");
     }
 
     public void playerGuess() {

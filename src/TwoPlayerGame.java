@@ -1,6 +1,5 @@
 public class TwoPlayerGame extends Game {
 
-
     @Override
     public void beginGame() {
         String[] playerNames = PlayerMessages.getPlayerNames();
@@ -21,8 +20,6 @@ public class TwoPlayerGame extends Game {
             System.out.println(PlayerMessages.hangmanImage(this.lives));
             System.out.println(player1Name + " wins! Better luck next time " + player2Name);
         }
-
     }
-
 
 }
