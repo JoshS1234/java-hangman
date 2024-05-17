@@ -1,4 +1,4 @@
-public class SinglePlayerGame extends Game{
+public class SinglePlayerGame extends Game {
 
     @Override
     public void beginGame() {
@@ -32,9 +32,6 @@ public class SinglePlayerGame extends Game{
             System.out.println("\nYou lose!");
         }
     }
-
-
-
 
 
 }
