@@ -32,22 +32,12 @@ public class WordUtils {
     }
 
     public WordUtils(int players, String wordToGuess) {
-        this.wordToGuess =wordToGuess;
+        this.wordToGuess = wordToGuess;
         this.currentWord = "";
         for (int i = 0; i < this.wordToGuess.length(); i++) {
             this.currentWord = this.currentWord + "_";
         }
     }
-
-    public String[] getWordArrHard() {
-        return wordArrHard;
-    }
-
-    public void setWordArrHard(String[] wordArrHard) {
-        this.wordArrHard = wordArrHard;
-    }
-
-
 
     public String chooseRandomWord(String[] wordArr) {
         return wordArr[(int) Math.floor(Math.random() * wordArr.length)];
@@ -78,8 +68,8 @@ public class WordUtils {
         }
         if (match) {
             String rejoinedCurrentWord = "";
-            for (int i = 0; i < blankedLetterArr.length; i++) {
-                rejoinedCurrentWord = rejoinedCurrentWord + blankedLetterArr[i];
+            for (String s : blankedLetterArr) {
+                rejoinedCurrentWord = rejoinedCurrentWord + s;
             }
             this.currentWord = rejoinedCurrentWord;
             return true;
@@ -87,7 +77,6 @@ public class WordUtils {
             return false;
         }
     }
-
 
 
     public boolean checkCurrWordFull() {
