@@ -18,22 +18,22 @@ public class WordUtils {
     }
 
     public WordUtils(String difficulty) {
-        String[] wordArrHard = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
-        String[] wordArrMedium = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
-        String[] wordArrEasy = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
+        final String[] WORD_ARR_HARD = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
+        final String[] WORD_ARR_MEDIUM = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
+        final String[] WORD_ARR_EASY = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
         switch (difficulty) {
             case "easy":
-                this.wordToGuess = chooseRandomWord(wordArrEasy);
+                this.wordToGuess = chooseRandomWord(WORD_ARR_EASY);
                 break;
             case "medium":
-                this.wordToGuess = chooseRandomWord(wordArrMedium);
+                this.wordToGuess = chooseRandomWord(WORD_ARR_MEDIUM);
                 break;
             case "hard":
-                this.wordToGuess = chooseRandomWord(wordArrHard);
+                this.wordToGuess = chooseRandomWord(WORD_ARR_HARD);
                 break;
             default:
                 System.out.println("Error!");
-                this.wordToGuess = chooseRandomWord(wordArrEasy);
+                this.wordToGuess = chooseRandomWord(WORD_ARR_EASY);
                 break;
         }
         this.currentWord = "";
