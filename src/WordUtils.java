@@ -5,18 +5,6 @@ public class WordUtils {
     private String wordToGuess;
     private String currentWord;
 
-    public ArrayList<String> getLettersGuessed() {
-        return lettersGuessed;
-    }
-
-    public String getWordToGuess() {
-        return wordToGuess;
-    }
-
-    public String getCurrentWord() {
-        return currentWord;
-    }
-
     public WordUtils(String difficulty) {
         final String[] WORD_ARR_HARD = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
         final String[] WORD_ARR_MEDIUM = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
@@ -48,6 +36,18 @@ public class WordUtils {
         for (int i = 0; i < this.wordToGuess.length(); i++) {
             this.currentWord = this.currentWord + "_";
         }
+    }
+
+    public ArrayList<String> getLettersGuessed() {
+        return lettersGuessed;
+    }
+
+    public String getWordToGuess() {
+        return wordToGuess;
+    }
+
+    public String getCurrentWord() {
+        return currentWord;
     }
 
     public String chooseRandomWord(String[] wordArr) {
