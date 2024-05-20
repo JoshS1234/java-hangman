@@ -2,13 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.*;
 
-public abstract class PlayerMessages {
+public class PlayerMessages {
 
     static Scanner myScanner = new Scanner(System.in);
     static String[] hangmanImageArray = {"\n\n\n\n\n\n\n", "\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="};
 
     public static String startGame() {
-        System.out.println("Would you like to start a game? (y/n)");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("|                   Would you like to start a game? (y/n)                     |");
+        System.out.println("-------------------------------------------------------------------------------");
         String startGameResponse = "";
         while (!startGameResponse.equalsIgnoreCase("y") && !startGameResponse.equalsIgnoreCase("n")) {
             startGameResponse = myScanner.nextLine().toLowerCase();
@@ -20,7 +22,9 @@ public abstract class PlayerMessages {
     }
 
     public static String pickPlayerNumber() {
-        System.out.println("Would you like to play with 1 or 2 players? (1/2)");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("|              Would you like to play with 1 or 2 players? (1/2)              |");
+        System.out.println("-------------------------------------------------------------------------------");
         String playerNumberResponse = "";
         while (!playerNumberResponse.equalsIgnoreCase("1") && !playerNumberResponse.equalsIgnoreCase("2")) {
             playerNumberResponse = myScanner.nextLine().toLowerCase();
@@ -54,11 +58,12 @@ public abstract class PlayerMessages {
         for (int i = 0; i < lives; i++) {
             lifeString = lifeString + "❤";
         }
-
+        System.out.println("-------------------------------------------------------------------------------");
         System.out.println(hangmanImage(lives));
         System.out.println("Lives left: " + lives + " " + lifeString);
         System.out.println("You have already guessed letters: " + lettersGuessed);
         System.out.println("the current word is: " + currentWord);
+
     }
 
 }
