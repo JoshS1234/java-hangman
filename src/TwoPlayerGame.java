@@ -2,10 +2,10 @@ public class TwoPlayerGame extends Game {
 
     @Override
     public void beginGame() {
-        String[] playerNames = PlayerMessages.getPlayerNames();
+        String[] playerNames = TwoPlayerMessages.getPlayerNames();
         String player1Name = playerNames[0];
         String player2Name = playerNames[1];
-        String player1Word = PlayerMessages.getPlayerWord(player1Name, player2Name);
+        String player1Word = TwoPlayerMessages.getPlayerWord(player1Name, player2Name);
         wordUtils = new WordUtils(2, player1Word);
         while (!this.hasWon && !this.hasLost) {
             PlayerMessages.stateInfo(this.lives, wordUtils.getLettersGuessed(), wordUtils.getCurrentWord());
