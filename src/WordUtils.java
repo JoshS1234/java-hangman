@@ -6,7 +6,7 @@ public class WordUtils {
     private String currentWord;
 
     public WordUtils(String difficulty) {
-        final String[] WORD_ARR_HARD = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "Pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
+        final String[] WORD_ARR_HARD = {"cryptocurrency", "juxtaposition", "quizzical", "phlegm", "sphinx", "vexing", "zephyr", "pizzazz", "pneumonoultramicroscopicsilicovolcanoconiosis", "frazzled", "lymph"};
         final String[] WORD_ARR_MEDIUM = {"ghost", "cheeky", "celebrity", "database", "javascript", "typescript"};
         final String[] WORD_ARR_EASY = {"shirt", "smile", "eggs", "apple", "whale", "spoon", "cheese"};
         switch (difficulty) {
