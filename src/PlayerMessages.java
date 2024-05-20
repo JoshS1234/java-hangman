@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.*;
 
-public abstract class PlayerMessages {
+public class PlayerMessages {
 
     static Scanner myScanner = new Scanner(System.in);
     static String[] hangmanImageArray = {"\n\n\n\n\n\n\n", "\n\n\n\n\n\n\n=========", "      +\n      |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========", "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="};
