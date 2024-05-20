@@ -2,7 +2,7 @@ public class SinglePlayerGame extends Game {
 
     @Override
     public void beginGame() {
-        String difficultyChoice = PlayerMessages.pickDifficulty();
+        String difficultyChoice = SinglePlayerMessages.pickDifficulty();
         switch (difficultyChoice) {
             case "easy":
                 wordUtils = new WordUtils("easy");
