@@ -1,4 +1,4 @@
-public class Game {
+public abstract class Game {
     protected int lives;
     protected boolean hasLost;
     protected boolean hasWon;
@@ -12,9 +12,7 @@ public class Game {
         this.hasWon = false;
     }
 
-    public void beginGame() {
-        System.out.println("This is the begin game method, it will be overridden by single/two player games");
-    }
+    public abstract void beginGame();
 
     public void playerGuess() {
         String letterToCheck = PlayerMessages.playerGuess();
